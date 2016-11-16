@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>nazwa</title>
+    <script src="js/gj-js-api-min.js"></script>
+	<script src="js/phaser.js"></script>
+    <script src="js/phaser.min.js"></script>
+	<script src="src/Boot.js"></script>
+	<script src="src/Preloader.js"></script>
+	<script src="src/Game.js"></script>
+	<script src="src/StartMenu.js"></script>
+</head>
+<style>
+   		body {
+			padding: 0;
+			margin: 0;
+			background-color: #000000;
+		}
+</style>
+<body>
+<div id="gameContainer"></div>
+<script type="text/javascript">
+window.onload = function() {
+	var game = new Phaser.Game(364, 768, Phaser.AUTO, 'gameContainer');
+	game.state.add('Boot', nazwa.Boot);
+	game.state.add('Preloader', nazwa.Preloader);
+    game.state.add('StartMenu', nazwa.StartMenu);
+	game.state.add('GameOver', nazwa.GameOver);
+	game.state.add('Game', nazwa.Game);
+	game.state.start('Boot');
+};
+</script>
+</body>
+</html>
