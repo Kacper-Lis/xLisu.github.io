@@ -199,38 +199,27 @@ nazwa.Game.prototype = {
     
     spawnEnemy: function(y){
         var rnd = this.game.rnd.integerInRange(0,10);
-        if(rnd>5){
+        if(rnd>4){
             ///przeciwnik
-            var x = this.game.rnd.integerInRange(150,300);
-            var enemy = enemys.create(290,y, "pipe");
+            var x = this.game.rnd.integerInRange(50,300);
+            var enemy = enemys.create(x,y, "pipe");
             var speed = this.game.rnd.integerInRange(7,17);
             enemy.scale.set(0.5);
             enemy.body.checkCollision = true;
             enemy.body.velocity = 0
+            if(x<175){
             tween = this.game.add.tween(enemy);
-            tween.to({ x:[290, 140, 290]}, speed*250, "Linear");
+            tween.to({ x:[x, x+140, x]}, speed*250, "Linear");
             tween.start();
             tween.loop(true);
-            ///platforma pod nim
-            var ledge = ledges.create(150, y+25, "ledgeLong");
-            ledge.body.checkCollision.down = false;
-            ledge.body.checkCollision.left = false;
-            ledge.body.checkCollision.right = false;
-            ledge.body.immovable = true;
-            ledge.body.moves = false;
-        }else{
-            var x = this.game.rnd.integerInRange(150,300);
-            var enemy = enemys.create(50,y, "pipe");
-            var speed = this.game.rnd.integerInRange(7,17);
-            enemy.scale.set(0.5);
-            enemy.body.checkCollision = true;
-            enemy.body.velocity = 0
+            var ledge = ledges.create(x+10, y+25, "ledgeLong");
+            }else{
             tween = this.game.add.tween(enemy);
-            tween.to({ x:[50, 190, 50]}, speed*250, "Linear");
+            tween.to({ x:[x, x-140, x]}, speed*250, "Linear");
             tween.start();
             tween.loop(true);
-            ///platforma pod nim
-            var ledge = ledges.create(60, y+25, "ledgeLong");
+            var ledge = ledges.create(x-130, y+25, "ledgeLong");
+            } 
             ledge.body.checkCollision.down = false;
             ledge.body.checkCollision.left = false;
             ledge.body.checkCollision.right = false;
