@@ -15,6 +15,8 @@ nazwa.Preloader.prototype = {
         this.game.load.image('back', 'assets/img/back.png');
         this.game.load.image('ledge2', 'assets/img/ledge2.png');
         this.game.load.image('titlescreen', 'assets/Start.png');
+        this.game.load.image('ledgeLong', 'assets/img/ledgeLong.png');
+        this.game.load.image('ledge3', 'assets/img/ledge3.png');
 	},
 
 	create: function () {
